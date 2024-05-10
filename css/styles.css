@@ -10,7 +10,6 @@
 }
 
 main {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,11 +17,47 @@ main {
     margin-top: 5rem;
 }
 
+.add_todo {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 
 
 input[type="text"] {
-    border: 2px solid #9e78cf;
+    border: 1px solid #9e78cf;
+    height: 100%;
+    width: 100%;
+    padding: 0px 1rem;
+    margin: 0.5rem;
+    border-radius: 0.625rem;
+    color: #9e78cf;
+
 }
+
+button.add-todo {
+    background: #9e78cf;
+    color: white;
+    border-radius: 0.625rem;
+    height: 100%;
+    width: 10%;
+    transition: all 0.45s ease 0s;
+
+    svg {
+        background: none;
+
+    }
+}
+
+button.add-todo:hover {
+    background: rgb(62, 22, 113);
+}
+
 
 h1 {
     color: white;
@@ -41,7 +76,6 @@ li {
 
 button {
     cursor: pointer;
-    /* filter: invert(100%); */
     color: #9e78cf;
     border: none;
 }
