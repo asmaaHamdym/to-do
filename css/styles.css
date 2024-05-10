@@ -1,17 +1,25 @@
+#root {
+    height: 100%;
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
+}
+
 * {
     background: #000;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 
-    main {
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 5rem;
-    }
+}
+
+main {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
 }
 
 input {
@@ -25,4 +33,26 @@ input[type="submit"] {
 
 input[type="text"] {
     border: 2px solid #9e78cf;
+}
+
+h1 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    color: #9e78cf;
+}
+
+button {
+    cursor: pointer;
+    /* filter: invert(100%); */
+    color: #9e78cf;
+    border: none;
 }
