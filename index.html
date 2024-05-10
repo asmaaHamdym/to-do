@@ -13,71 +13,76 @@
 
 <body>
 
+    <main>
+        <section class="add_todo small-screen">
+            <input type="text" class="todo" placeholder="Add a new task">
+            <button type="button" class="add-todo" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="16"></line>
+                </svg>
+            </button>
+
+
+        </section>
+        <section class="display_todo">
+            <h1 class="tasks">Tasks - <span class="task-count todo">2</span> </h1>
+            <ul class="todos">
+                <li><span class="task">
+                        sfdf
+                    </span>
+                    <button class="completed"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            fill="currentColor" viewBox="0 0 256 256">
+                            <rect width="256" height="256" fill="none"></rect>
+                            <polyline points="216 72 104 184 48 128" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                        </svg></button>
+                    <button class="delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <rect width="256" height="256" fill="none"></rect>
+                            <line x1="216" y1="56" x2="40" y2="56" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                            <line x1="88" y1="24" x2="168" y2="24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                            <path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+        </section>
+        <section class="display-done">
+            <h1 class="tasks-done">Done - <span class="task-count done">2</span>
+            </h1>
+            <ol class="done">
+                <li><span class="task">
+                        shower
+                    </span>
+                    <button class="undo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <rect width="256" height="256" fill="none"></rect>
+                            <polyline points="80 136 32 88 80 40" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                            <path d="M80,200h88a56,56,0,0,0,56-56h0a56,56,0,0,0-56-56H32" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
+                            </path>
+                        </svg>
+                    </button>
+                </li>
+            </ol>
+        </section>
+
+
+    </main>
 </body>
-<main>
-    <section class="add_todo">
-        <input type="text" class="todo" placeholder="Add a new task">
-        <button type="button" class="add-todo" disabled>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none"></rect>
-                <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></line>
-                <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></line>
-            </svg>
-        </button>
 
 
-    </section>
-    <h1 class="tasks">Tasks to do:<span class="task-count todo">2</span> </h1>
-    <section class="display_todo">
-        <ul class="todos">
-            <li class="task">
-                go home <button class="completed"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                        fill="currentColor" viewBox="0 0 256 256">
-                        <rect width="256" height="256" fill="none"></rect>
-                        <polyline points="216 72 104 184 48 128" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                    </svg></button>
-                <button class="delete">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                        viewBox="0 0 256 256">
-                        <rect width="256" height="256" fill="none"></rect>
-                        <line x1="216" y1="56" x2="40" y2="56" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="16"></line>
-                        <line x1="88" y1="24" x2="168" y2="24" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="16"></line>
-                        <path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                    </svg>
-                </button>
-            </li>
-        </ul>
-
-    </section>
-    <h1 class="tasks-done">Tasks done: <span class="task-count done">2</span>
-    </h1>
-    <section class="display-done">
-        <ol class="done">
-            <li class="task">
-                shower
-                <button class="undo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                        viewBox="0 0 256 256">
-                        <rect width="256" height="256" fill="none"></rect>
-                        <polyline points="80 136 32 88 80 40" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="16"></polyline>
-                        <path d="M80,200h88a56,56,0,0,0,56-56h0a56,56,0,0,0-56-56H32" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                    </svg>
-                </button>
-            </li>
-        </ol>
-    </section>
-
-
-
-
-</main>
 
 </html>
