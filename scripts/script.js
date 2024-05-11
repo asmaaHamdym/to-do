@@ -2,6 +2,7 @@ const input = document.querySelector("input");
 const add_task_button = document.getElementById("add_task");
 const todo_list = document.getElementById("todos");
 const display_todo_section = document.getElementById("display_todo");
+const task_count = document.getElementById("task-count");
 
 let tasks = [];
 
@@ -17,6 +18,7 @@ let renderTasks = () => {
   display_todo_section.style.display = "flex";
   todo_list.innerHTML = "";
   not_done_tasks = tasks.filter((task) => !task.done);
+  task_count.innerHTML = not_done_tasks.length;
   not_done_tasks.forEach((task) => {
     let li = document.createElement("li");
     li.innerHTML = `<span class="task">
