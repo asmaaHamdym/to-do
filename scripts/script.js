@@ -19,7 +19,7 @@ let renderTasks = () => {
   todo_list.innerHTML = "";
   not_done_tasks = tasks.filter((task) => !task.done);
   task_count.innerHTML = not_done_tasks.length;
-  not_done_tasks.forEach((task) => {
+  not_done_tasks.forEach((task, index) => {
     let li = document.createElement("li");
     li.innerHTML = `<span class="task">
                         ${task.task}
@@ -30,7 +30,7 @@ let renderTasks = () => {
                             <polyline points="216 72 104 184 48 128" fill="none" stroke="currentColor"
                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
                         </svg></button>
-                    <button class="delete">
+                    <button class="delete" onclick="deleteTask(${index})">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                             viewBox="0 0 256 256">
                             <rect width="256" height="256" fill="none"></rect>
@@ -45,7 +45,10 @@ let renderTasks = () => {
     todo_list.appendChild(li);
   });
 };
-
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}
 input.addEventListener("input", () => {
   add_task_button.removeAttribute("disabled");
 });
