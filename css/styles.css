@@ -105,6 +105,12 @@ span.task {
     margin-right: auto;
 }
 
+.delete:hover,
+.completed:hover,
+.undo:hover {
+    color: rgb(62, 22, 113);
+}
+
 button {
     cursor: pointer;
     color: #9e78cf;

@@ -15,7 +15,11 @@ let addTask = () => {
 };
 
 let renderTasks = () => {
-  display_todo_section.style.display = "flex";
+  if (tasks.length) {
+    display_todo_section.style.display = "flex";
+  } else {
+    display_todo_section.style.display = "none";
+  }
   todo_list.innerHTML = "";
   not_done_tasks = tasks.filter((task) => !task.done);
   task_count.innerHTML = not_done_tasks.length;
