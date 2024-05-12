@@ -11,7 +11,7 @@ let tasks = [];
 
 let addTask = () => {
   if (input.value) {
-    tasks.push({ task: input.value, done: false });
+    tasks.push({ task: input.value, isDone: false });
     input.value = "";
     let notDoneTasks = filterTasks(false);
     renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
@@ -35,7 +35,7 @@ let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
     li.innerHTML = `<span class="task">
                         ${task.task}
                     </span>`;
-    if (task.done) {
+    if (task.isDone) {
       li.innerHTML += `<button class="undo" onclick="toggleTask(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                             viewBox="0 0 256 256">
@@ -71,9 +71,9 @@ let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
     elementList.appendChild(li);
   });
 };
-
+// filter tasks based on wether it's completed or not
 let filterTasks = (isCompleted) => {
-  let filtered_tasks = tasks.filter((task) => task.done === isCompleted);
+  let filtered_tasks = tasks.filter((task) => task.isDone === isCompleted);
   return filtered_tasks;
 };
 let deleteTask = (index) => {
@@ -82,11 +82,13 @@ let deleteTask = (index) => {
   let notDoneTasks = filterTasks(false);
   renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
 };
+
+// toggle task status
 let toggleTask = (e) => {
   const toggled_task = e.previousElementSibling.innerHTML.trim();
   const index = tasks.findIndex((task) => task.task === toggled_task);
 
-  tasks[index].done = !tasks[index].done;
+  tasks[index].isDone = !tasks[index].isDone;
 
   let notDoneTasks = filterTasks(false);
   let doneTasks = filterTasks(true);
