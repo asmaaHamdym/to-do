@@ -13,28 +13,42 @@ let addTask = () => {
   if (input.value) {
     tasks.push({ task: input.value, done: false });
     input.value = "";
-    renderTasks();
+    let notDoneTasks = filterTasks(false);
+    renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
   }
 };
 
-let renderTasks = () => {
-  // display tasks yet to be done
-  todo_list.innerHTML = "";
-  not_done_tasks = tasks.filter((task) => !task.done);
+let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
+  elementList.innerHTML = "";
 
-  if (not_done_tasks.length) {
-    display_todo_section.style.display = "flex";
+  // check if there are tasks to display
+  if (taskList.length) {
+    displaySection.style.display = "flex";
   } else {
-    display_todo_section.style.display = "none";
+    displaySection.style.display = "none";
   }
 
-  task_count.innerHTML = not_done_tasks.length;
-  not_done_tasks.forEach((task, index) => {
+  taskCountElement.innerHTML = taskList.length;
+  taskList.forEach((task, index) => {
     let li = document.createElement("li");
+
     li.innerHTML = `<span class="task">
                         ${task.task}
-                    </span>
-                    <button class="completed" onclick="toggleTask(this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                    </span>`;
+    if (task.done) {
+      li.innerHTML += `<button class="undo" onclick="toggleTask(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <rect width="256" height="256" fill="none"></rect>
+                            <polyline points="80 136 32 88 80 40" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                            <path d="M80,200h88a56,56,0,0,0,56-56h0a56,56,0,0,0-56-56H32" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
+                            </path>
+                        </svg>
+                    </button>`;
+    } else {
+      li.innerHTML += `<button class="completed" onclick="toggleTask(this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             fill="currentColor" viewBox="0 0 256 256">
                             <rect width="256" height="256" fill="none"></rect>
                             <polyline points="216 72 104 184 48 128" fill="none" stroke="currentColor"
@@ -52,49 +66,32 @@ let renderTasks = () => {
                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
                         </svg>
                     </button>`;
-    todo_list.appendChild(li);
+    }
+
+    elementList.appendChild(li);
   });
 };
 
-let renderDone = () => {
-  done_list.innerHTML = "";
-  done_tasks = tasks.filter((task) => task.done);
-  if (done_tasks.length) {
-    display_done_section.style.display = "flex";
-  } else {
-    display_done_section.style.display = "none";
-  }
-  task_count_done.innerHTML = done_tasks.length;
-  done_tasks.forEach((task, index) => {
-    let li = document.createElement("li");
-    li.innerHTML = `<span class="task" id="task">
-                        ${task.task}
-                    </span>
-                    <button class="undo" onclick="toggleTask(this)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                            viewBox="0 0 256 256">
-                            <rect width="256" height="256" fill="none"></rect>
-                            <polyline points="80 136 32 88 80 40" fill="none" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                            <path d="M80,200h88a56,56,0,0,0,56-56h0a56,56,0,0,0-56-56H32" fill="none"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
-                            </path>
-                        </svg>
-                    </button>`;
-    done_list.appendChild(li);
-  });
+let filterTasks = (isCompleted) => {
+  let filtered_tasks = tasks.filter((task) => task.done === isCompleted);
+  return filtered_tasks;
 };
 let deleteTask = (index) => {
   tasks.splice(index, 1);
-  renderTasks();
+  // return the not completed tasks
+  let notDoneTasks = filterTasks(false);
+  renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
 };
 let toggleTask = (e) => {
-  toggled_task = e.previousElementSibling.innerHTML.trim();
-  let index = tasks.findIndex((task) => task.task === toggled_task);
+  const toggled_task = e.previousElementSibling.innerHTML.trim();
+  const index = tasks.findIndex((task) => task.task === toggled_task);
 
   tasks[index].done = !tasks[index].done;
-  renderTasks();
-  renderDone();
+
+  let notDoneTasks = filterTasks(false);
+  let doneTasks = filterTasks(true);
+  renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
+  renderTasks(doneTasks, done_list, task_count_done, display_done_section);
 };
 
 input.addEventListener("input", () => {
