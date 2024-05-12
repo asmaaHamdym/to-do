@@ -13,16 +13,6 @@ input.addEventListener("input", () => {
 
 let tasks = [];
 
-let addTask = () => {
-  if (input.value) {
-    tasks.push({ task: input.value, isDone: false });
-    input.value = "";
-    let notDoneTasks = filterTasks(false);
-
-    renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
-  }
-};
-
 let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
   elementList.innerHTML = "";
 
@@ -76,6 +66,17 @@ let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
     elementList.appendChild(li);
   });
 };
+
+let addTask = () => {
+  if (input.value) {
+    tasks.push({ task: input.value, isDone: false });
+    input.value = "";
+    let notDoneTasks = filterTasks(false);
+
+    renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
+  }
+};
+
 // filter tasks based on wether it's completed or not
 let filterTasks = (isCompleted) => {
   let filtered_tasks = tasks.filter((task) => task.isDone === isCompleted);

@@ -57,6 +57,7 @@ button.add-todo>svg {
 
 }
 
+
 button.add-todo:hover {
     background: rgb(62, 22, 113);
 }
@@ -93,8 +94,8 @@ ul {
 
 }
 
-li {
 
+li {
     background: #15101C;
     width: 100%;
     display: flex;
@@ -105,16 +106,18 @@ li {
     border-radius: 0.625rem;
     padding: 1.5rem 1.375rem;
     margin-bottom: 1rem;
+}
+
+li>svg {
+    background: none;
 
 }
 
-
-.hidden {
-    display: none;
-}
 
 span.task {
     margin-right: auto;
+    max-width: 380px;
+    word-wrap: break-word;
 }
 
 .delete:hover,
