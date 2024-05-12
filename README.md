@@ -20,14 +20,14 @@ The app also provides a counter for the completed and the non-completed tasks so
 ![image](https://github.com/asmaaHamdym/to-do-app/assets/120820983/51b3299b-9d92-44a3-aee5-17a4fb4cfd8f)
 
 ### Technologies
-- HTML
+- HTML:
 The structure of the Website was developed using HTML.
-- CSS
+- CSS:
 The Website was styled using custom CSS in an external file.
-- JavaScript
+- JavaScript:
 All functionality of the website was done using Vanilla JavaScript.
-- GitHub
+- GitHub:
 Source code is hosted on GitHub and delpoyed using Git Pages.
-- Git
+- Git:
 Used to commit and push code during the development opf the Website
 
