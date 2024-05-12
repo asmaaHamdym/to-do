@@ -7,6 +7,10 @@ const display_done_section = document.getElementById("display-done");
 const task_count = document.getElementById("task-count");
 const task_count_done = document.getElementById("task-count-done");
 
+input.addEventListener("input", () => {
+  add_task_button.removeAttribute("disabled");
+});
+
 let tasks = [];
 
 let addTask = () => {
@@ -14,6 +18,7 @@ let addTask = () => {
     tasks.push({ task: input.value, isDone: false });
     input.value = "";
     let notDoneTasks = filterTasks(false);
+
     renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
   }
 };
@@ -95,7 +100,3 @@ let toggleTask = (e) => {
   renderTasks(notDoneTasks, todo_list, task_count, display_todo_section);
   renderTasks(doneTasks, done_list, task_count_done, display_done_section);
 };
-
-input.addEventListener("input", () => {
-  add_task_button.removeAttribute("disabled");
-});
