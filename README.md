@@ -29,5 +29,5 @@ All functionality of the website was done using Vanilla JavaScript.
 - GitHub:
 Source code is hosted on GitHub and delpoyed using Git Pages.
 - Git:
-Used to commit and push code during the development opf the Website
+Used to commit and push code during the development of the Website
 
