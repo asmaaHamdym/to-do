@@ -13,7 +13,6 @@ let addTask = () => {
   if (input.value) {
     tasks.push({ task: input.value, done: false });
     input.value = "";
-    console.log(tasks);
     renderTasks();
   }
 };
@@ -35,7 +34,7 @@ let renderTasks = () => {
     li.innerHTML = `<span class="task">
                         ${task.task}
                     </span>
-                    <button class="completed" onclick="markTaskDone(this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                    <button class="completed" onclick="toggleTask(this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             fill="currentColor" viewBox="0 0 256 256">
                             <rect width="256" height="256" fill="none"></rect>
                             <polyline points="216 72 104 184 48 128" fill="none" stroke="currentColor"
@@ -71,11 +70,7 @@ let renderDone = () => {
     li.innerHTML = `<span class="task" id="task">
                         ${task.task}
                     </span>
-<<<<<<< HEAD
-                    <button class="undo" onclick="undoTask(this})">
-=======
-                    <button class="undo" onclick="undoTask(${this})">
->>>>>>> 7cddeaa698f91d032682d6bff3a2219e5f13da55
+                    <button class="undo" onclick="toggleTask(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                             viewBox="0 0 256 256">
                             <rect width="256" height="256" fill="none"></rect>
@@ -93,14 +88,15 @@ let deleteTask = (index) => {
   tasks.splice(index, 1);
   renderTasks();
 };
-let markTaskDone = (e) => {
-  completed_task = e.previousElementSibling.innerHTML.trim();
-  let index = tasks.findIndex((task) => task.task === completed_task);
+let toggleTask = (e) => {
+  toggled_task = e.previousElementSibling.innerHTML.trim();
+  let index = tasks.findIndex((task) => task.task === toggled_task);
 
-  tasks[index].done = true;
+  tasks[index].done = !tasks[index].done;
   renderTasks();
   renderDone();
 };
+
 input.addEventListener("input", () => {
   add_task_button.removeAttribute("disabled");
 });
