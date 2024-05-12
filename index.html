@@ -16,7 +16,7 @@
     <main>
         <section class="add_todo small-screen">
             <input type="text" class="todo" placeholder="Add a new task">
-            <button type="button" id="add_task" id="add_todo" class="add-todo" disabled>
+            <button id="add_task" class="add-todo" disabled onclick="addTask()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                     viewBox="0 0 256 256">
                     <rect width="256" height="256" fill="none"></rect>
@@ -30,31 +30,16 @@
 
         </section>
         <section class="display_todo" id="display_todo">
-            <h1 class="tasks">Tasks - <span id="task-count">2</span> </h1>
+            <h1 class="tasks">Tasks - <span id="task-count"></span> </h1>
             <ul class="todos" id="todos">
 
             </ul>
 
         </section>
-        <section class="display-done">
-            <h1 class="tasks-done">Done - <span class="task-count done">2</span>
+        <section class="display-done" id="display-done">
+            <h1 class="tasks-done">Done - <span id="task-count-done"></span>
             </h1>
             <ul class="done" id="done">
-                <li><span class="task">
-                        shower
-                    </span>
-                    <button class="undo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                            viewBox="0 0 256 256">
-                            <rect width="256" height="256" fill="none"></rect>
-                            <polyline points="80 136 32 88 80 40" fill="none" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
-                            <path d="M80,200h88a56,56,0,0,0,56-56h0a56,56,0,0,0-56-56H32" fill="none"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
-                            </path>
-                        </svg>
-                    </button>
-                </li>
             </ul>
         </section>
 
