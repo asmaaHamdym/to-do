@@ -63,13 +63,21 @@ button.add-todo:hover {
 
 section.display_todo,
 section.display-done {
-    display: none;
+    position: relative;
     max-width: 500px;
     width: 100%;
     flex-direction: column;
-    height: 2.5rem;
+    height: auto;
     margin: 2.4rem;
 
+}
+
+section.display-done {
+    margin-top: -4rem;
+}
+
+.hidden {
+    display: none;
 }
 
 h1 {
@@ -96,8 +104,13 @@ li {
     color: #9e78cf;
     border-radius: 0.625rem;
     padding: 1.5rem 1.375rem;
+    margin-bottom: 1rem;
+
+}
 
 
+.hidden {
+    display: none;
 }
 
 span.task {
@@ -137,5 +150,9 @@ h1.tasks-done {
 
     button.add-todo {
         width: 15%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
     }
 }

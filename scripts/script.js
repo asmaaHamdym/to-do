@@ -71,7 +71,7 @@ let renderDone = () => {
     li.innerHTML = `<span class="task" id="task">
                         ${task.task}
                     </span>
-                    <button class="undo" onclick="undoTask(${this})">
+                    <button class="undo" onclick="undoTask(this})">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                             viewBox="0 0 256 256">
                             <rect width="256" height="256" fill="none"></rect>
