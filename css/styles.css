@@ -64,7 +64,6 @@ button.add-todo:hover {
 
 section.display_todo,
 section.display-done {
-    position: relative;
     max-width: 500px;
     width: 100%;
     flex-direction: column;
@@ -73,9 +72,6 @@ section.display-done {
 
 }
 
-section.display-done {
-    margin-top: -4rem;
-}
 
 .hidden {
     display: none;

@@ -18,9 +18,10 @@ let renderTasks = (taskList, elementList, taskCountElement, displaySection) => {
 
   // check if there are tasks to display
   if (taskList.length) {
-    displaySection.style.display = "flex";
+    displaySection.style.display = "block";
   } else {
     displaySection.style.display = "none";
+    return;
   }
 
   taskCountElement.innerHTML = taskList.length;
